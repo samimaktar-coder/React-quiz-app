@@ -68,7 +68,7 @@ function QuizBody({ quizId }) {
       )}
 
       {allowCheckAnswers && (
-        <div className='flex justify-center xs:flex-row flex-col items-center xs:mb-0 mb-6 gap-3 xs:gap-8 mt-14'>
+        <div className='flex justify-center xs:flex-row flex-col items-center gap-3 xs:gap-8 mt-14'>
           <p className='text-lg'>
             You scored {correctAnwerNumbers}/{questionNumbers} answer
           </p>
@@ -80,6 +80,17 @@ function QuizBody({ quizId }) {
           </button>
         </div>
       )}
+
+      <div className='mt-6 flex items-center justify-center gap-2'>
+        <a
+          href='https://github.com/samimaktar-coder/React-quiz-app'
+          target='_blank'
+          className='hover:underline'
+        >
+          Open source code
+        </a>
+        <p> by Samim</p>
+      </div>
     </div>
   );
 }
