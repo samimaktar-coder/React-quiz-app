@@ -7,7 +7,7 @@ function FirstPage({ difficultyLevel, questionNumbers, openQuizPage }) {
 
   return (
     <div
-      className={`absolute left-0 right-0 h-screen bg-slate-700 pt-64 md:pt-36 text-center duration-700 ${
+      className={`absolute left-0 right-0 h-screen bg-slate-700 pt-64 md:pt-36 text-center duration-700 z-10 ${
         openQuizPage ? "-top-full" : "top-0"
       }`}
     >

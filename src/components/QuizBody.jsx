@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuizInfo } from "../context";
 import Question from "./Question";
+import Shimmer from "./Shimmer";
 
 function QuizBody({ quizId }) {
   const {
@@ -28,9 +29,6 @@ function QuizBody({ quizId }) {
     );
     let json = await data.json();
     setQuestions(json.results);
-    console.log(
-      `https://opentdb.com/api.php?amount=${questionNumbers}&category=${quizId}&difficulty=${difficultyLevel}&type=multiple`
-    );
   };
 
   const resetAll = () => {
@@ -42,17 +40,16 @@ function QuizBody({ quizId }) {
     setAllowCheckAnswers(false);
   };
 
-  return (
+  return questions.length > 0 ? (
     <div className='p-5 ss:p-10 py-4'>
       <ul>
-        {questions.length > 0 &&
-          questions.map((question, index) => (
-            <Question
-              key={question.question}
-              serialNum={index + 1}
-              questionData={question}
-            />
-          ))}
+        {questions.map((question, index) => (
+          <Question
+            key={question.question}
+            serialNum={index + 1}
+            questionData={question}
+          />
+        ))}
       </ul>
       {!allowCheckAnswers && (
         <button
@@ -92,6 +89,8 @@ function QuizBody({ quizId }) {
         <p> by Samim</p>
       </div>
     </div>
+  ) : (
+    <Shimmer />
   );
 }
 
