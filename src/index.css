@@ -11,3 +11,7 @@
     background-color: goldenrod;
     border-radius: .4rem;
 }
+
+::selection {
+    background-color: rgb(193, 51, 0);
+}

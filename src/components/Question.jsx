@@ -66,7 +66,11 @@ function Question({ serialNum, questionData }) {
                   : ""
               }`}
               onClick={() => {
-                setIsHold(index);
+                if (index === isHold) {
+                  setIsHold(null);
+                } else {
+                  setIsHold(index);
+                }
               }}
             >
               {decode(option)}
